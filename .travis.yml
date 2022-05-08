@@ -1,0 +1,12 @@
+sudo: required 
+services: 
+    - docker 
+
+before_install: 
+    - docker build -t pan/docker-react -f Dockerfile.dev .
+
+script: 
+    - docker run pan/docker-react npm run test -- --coverage
+
+
+
